@@ -706,7 +706,7 @@
       <div class="cf-field"><label for="cfMsg">Message <span class="req">*</span></label><textarea id="cfMsg" placeholder="A few lines about the role or project…"></textarea><div class="cf-err" data-for="cfMsg">Please add a short message</div></div>
     </div>
     <div class="cf-foot">
-      <div class="cf-note" id="cfNote">Sends a pre-filled email to <a href="mailto:hello@victorcitroen.com">hello@victorcitroen.com</a>.<br>Prefer direct? Call +41 78 303 73 99.</div>
+      <div class="cf-note" id="cfNote">Goes straight to <a href="mailto:hello@victorcitroen.com">hello@victorcitroen.com</a>.<br>Prefer direct? Call +41 78 303 73 99.</div>
       <button type="submit" class="cf-submit">Send message →</button>
     </div>
   </form>
@@ -829,35 +829,48 @@
 </script>
 <script>
 (function(){
-  const modal=document.getElementById('cfModal'); if(!modal) return;
-  const form=document.getElementById('cfForm');
-  const $=id=>document.getElementById(id);
-  let reason='Consulting engagement';
-  const seg=$('cfSeg');
-  seg.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-    seg.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
-    b.classList.add('on'); reason=b.dataset.v;
-  }));
-  function open(){ modal.classList.add('show'); document.body.style.overflow='hidden'; setTimeout(()=>$('cfName').focus(),60); }
-  function close(){ modal.classList.remove('show'); document.body.style.overflow=''; }
+  var modal=document.getElementById('cfModal'); if(!modal) return;
+  var form=document.getElementById('cfForm');
+  var $=function(id){return document.getElementById(id);};
+  var ENDPOINT='https://formsubmit.co/ajax/hello@victorcitroen.com';
+  var reason='Consulting engagement';
+  var seg=$('cfSeg');
+  seg.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){seg.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');reason=b.dataset.v;});});
+  function open(){modal.classList.add('show');document.body.style.overflow='hidden';setTimeout(function(){$('cfName').focus();},60);}
+  function close(){modal.classList.remove('show');document.body.style.overflow='';}
   $('cfClose').addEventListener('click',close);
-  modal.addEventListener('click',e=>{ if(e.target===modal) close(); });
-  addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('show')) close(); });
-  document.querySelectorAll('[data-open-contact]').forEach(el=>el.addEventListener('click',e=>{ e.preventDefault(); open(); }));
-  function err(id,show){ const e=document.querySelector('.cf-err[data-for="'+id+'"]'); if(e) e.style.display=show?'block':'none'; }
-  form.addEventListener('submit',e=>{
+  modal.addEventListener('click',function(e){if(e.target===modal)close();});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('show'))close();});
+  document.querySelectorAll('[data-open-contact]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();open();});});
+  function err(id,show){var e=document.querySelector('.cf-err[data-for="'+id+'"]');if(e)e.style.display=show?'block':'none';}
+  function validate(){
+    var name=$('cfName').value.trim(),email=$('cfEmail').value.trim(),msg=$('cfMsg').value.trim();
+    var ok=true;
+    err('cfName',!name);if(!name)ok=false;
+    var emailOk=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);err('cfEmail',!emailOk);if(!emailOk)ok=false;
+    err('cfMsg',!msg);if(!msg)ok=false;
+    return ok?{name:name,email:email,msg:msg}:null;
+  }
+  function success(){
+    form.innerHTML='<div class="cf-head"><div><h3>Message sent</h3><p>Thanks — your message is on its way to hello@victorcitroen.com. I will reply personally, usually within a day.</p></div><button type="button" class="cf-x" id="cfClose2" aria-label="Close">&times;</button></div><div class="cf-body" style="padding-bottom:28px"><button type="button" class="cf-submit" id="cfDone">Close</button></div>';
+    document.getElementById('cfClose2').addEventListener('click',close);
+    document.getElementById('cfDone').addEventListener('click',close);
+  }
+  function fail(m){$('cfNote').innerHTML=(m||'Could not send right now')+'. Please email <a href="mailto:hello@victorcitroen.com">hello@victorcitroen.com</a> directly.';}
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    const name=$('cfName').value.trim(), email=$('cfEmail').value.trim(), msg=$('cfMsg').value.trim();
-    let ok=true;
-    err('cfName',!name); if(!name) ok=false;
-    const emailOk=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email); err('cfEmail',!emailOk); if(!emailOk) ok=false;
-    err('cfMsg',!msg); if(!msg) ok=false;
-    if(!ok) return;
-    const company=$('cfCompany').value.trim(), role=$('cfRole').value.trim(), timeline=$('cfTimeline').value, budget=$('cfBudget').value.trim();
-    const subject=`[${reason}] — ${name}${company?' · '+company:''}`;
-    const body=`Reason: ${reason}\nName: ${name}\nEmail: ${email}\nCompany: ${company||'—'}\nRole: ${role||'—'}\nTimeline: ${timeline}\nBudget/Comp: ${budget||'—'}\n\nMessage:\n${msg}\n\n— Sent from victorcitroen.com`;
-    window.location.href=`mailto:hello@victorcitroen.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    $('cfNote').innerHTML='Opening your email client… if nothing happens, email <a href="mailto:hello@victorcitroen.com">hello@victorcitroen.com</a> directly.';
+    var v=validate(); if(!v) return;
+    var company=$('cfCompany').value.trim(),role=$('cfRole').value.trim(),timeline=$('cfTimeline').value,budget=$('cfBudget').value.trim();
+    var subject='['+reason+'] '+v.name+(company?' · '+company:'');
+    var payload={ _subject:subject, _template:'table', _captcha:'false', _replyto:v.email,
+      Reason:reason, Name:v.name, Email:v.email, Company:company||'-', Role:role||'-',
+      Timeline:timeline, Budget_or_Compensation:budget||'-', Message:v.msg };
+    var btn=form.querySelector('.cf-submit'); var label=btn.textContent;
+    btn.disabled=true; btn.textContent='Sending...';
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();})
+      .then(function(j){ if(j && (j.success===true||j.success==='true')){success();} else { fail(j&&j.message?j.message:''); btn.disabled=false; btn.textContent=label; } })
+      .catch(function(){ fail('Network error'); btn.disabled=false; btn.textContent=label; });
   });
 })();
 </script>
