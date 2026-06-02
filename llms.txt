@@ -1,0 +1,23 @@
+# Victor Citroën — AI Product & Delivery Lead / AI Consultant (Zürich)
+
+> Senior AI Product & Delivery Lead and independent AI consultant based in Zürich, Switzerland. Specialising in Palantir Foundry & AIP and GDPR-compliant AI deployment. 30+ products delivered across three continents.
+
+## About
+Victor Citroën takes AI and enterprise systems from discovery to live, GDPR-compliant deployment — owning the architecture, the team and the commercial outcome. Selected delivery includes a Volkswagen dealer-operations platform (200+ dealerships), International Trucks uptime & compliance tooling, and a USD 500K-funded game studio (as COO). He is currently delivering SAGE Jr., a GDPR-compliant AI support system, as Product Owner, and specialising in Palantir Foundry & AIP.
+
+## Services
+- AI Strategy & Roadmap — opportunity assessment to a deployable AI roadmap
+- GenAI & LLM Solution Delivery — RAG, agentic workflows, LLM integration (Claude, GPT, Gemini)
+- Palantir Foundry & AIP — ontology modelling, data pipelines, operational AIP workflows
+- GDPR-Compliant AI Deployment — PII redaction, DPIA, Art. 30 audit logging, EU data residency
+- Workflow Automation & Integration — n8n, Python, Docker, REST & webhooks
+- Fractional AI Product / Delivery Lead — embedded ownership from discovery to launch
+
+## Works with
+Enterprises, scale-ups, managed-service providers, and regulated industries (healthcare, finance, public sector). Based in Zürich; serves Switzerland, the DACH region and the EU, with remote engagements across the US and Latin America.
+
+## Contact
+- Email: hello@victorcitroen.com
+- Phone: +41 78 303 73 99
+- LinkedIn: https://www.linkedin.com/in/victorcitroen/
+- Website: https://victorcitroen.com/

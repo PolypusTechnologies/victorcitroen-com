@@ -1,0 +1,16 @@
+{
+  "name": "Victor Citroën — AI Product & Delivery Lead",
+  "short_name": "Victor Citroën",
+  "description": "AI consultant in Zürich, specialising in Palantir Foundry & AIP and GDPR-compliant AI deployment.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090E",
+  "theme_color": "#07090E",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307090E'/%3E%3Crect x='3' y='3' width='58' height='58' fill='none' stroke='%233D7DFF' stroke-width='1.5'/%3E%3Ctext x='31' y='45' font-family='monospace' font-size='34' font-weight='600' fill='%23E8EBF0' text-anchor='middle'%3EVC%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
