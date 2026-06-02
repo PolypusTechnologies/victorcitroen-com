@@ -375,6 +375,39 @@
     .reveal,.hero *{opacity:1!important;transform:none!important}
     .eng-frame img.on{animation:none!important}
   }
+
+  /* ===== contact modal ===== */
+  .cf-modal{position:fixed;inset:0;z-index:120;background:rgba(3,5,9,.74);backdrop-filter:blur(5px);display:none;align-items:flex-start;justify-content:center;padding:5vh 18px;overflow-y:auto}
+  .cf-modal.show{display:flex}
+  .cf{width:100%;max-width:580px;background:var(--bg-2);border:1px solid var(--line-2);animation:rise .4s var(--e)}
+  .cf-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:24px 26px 18px;border-bottom:1px solid var(--line)}
+  .cf-head h3{font-size:23px;font-weight:600;letter-spacing:-.02em}
+  .cf-head p{font-size:12.5px;color:var(--text-3);margin-top:6px;font-family:var(--mono);line-height:1.5}
+  .cf-x{background:none;border:0;color:var(--text-3);font-size:25px;line-height:1;cursor:pointer;padding:2px 6px}
+  .cf-x:hover{color:var(--text)}
+  .cf-body{padding:22px 26px}
+  .cf-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:9px}
+  .cf-lbl .req{color:var(--accent-2)}
+  .cf-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+  .cf-seg button{font-family:var(--mono);font-size:12px;padding:12px 12px;border:1px solid var(--line-2);background:var(--panel);color:var(--text-2);cursor:pointer;transition:.15s;text-align:left}
+  .cf-seg button:hover{border-color:var(--accent);color:var(--text)}
+  .cf-seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .cf-field{margin-bottom:14px}
+  .cf-field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px}
+  .cf-field label .req{color:var(--accent-2)}
+  .cf-field input,.cf-field select,.cf-field textarea{width:100%;background:var(--panel);border:1px solid var(--line-2);color:var(--text);font-family:var(--sans);font-size:14px;padding:11px 13px;outline:none;transition:border .15s}
+  .cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{border-color:var(--accent)}
+  .cf-field textarea{resize:vertical;min-height:108px;line-height:1.5}
+  .cf-field input::placeholder,.cf-field textarea::placeholder{color:var(--text-3)}
+  .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:520px){.cf-row,.cf-seg{grid-template-columns:1fr}}
+  .cf-err{color:#ff7a6b;font-family:var(--mono);font-size:10.5px;margin-top:5px;display:none}
+  .cf-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;border-top:1px solid var(--line)}
+  .cf-note{font-family:var(--mono);font-size:10.5px;color:var(--text-3);line-height:1.5}
+  .cf-note a{color:var(--accent-2)}
+  .cf-submit{font-family:var(--mono);font-size:13px;letter-spacing:.03em;text-transform:uppercase;background:var(--accent);border:1px solid var(--accent);color:#fff;padding:13px 22px;cursor:pointer;transition:.2s;white-space:nowrap}
+  .cf-submit:hover{background:var(--accent-2);border-color:var(--accent-2);transform:translateY(-1px)}
+  @media(prefers-reduced-motion:reduce){.cf{animation:none}.cf-submit:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -406,8 +439,8 @@
     <div class="cta-row">
       <a class="btn solid" href="cv.pdf">Download CV
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13m0 0l-5-5m5 5l5-5M5 21h14"/></svg></a>
-      <a class="btn ghost" href="mailto:hello@victorcitroen.com?subject=Hello%20from%20victorcitroen.com">Get in Touch
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+      <button class="btn ghost" type="button" data-open-contact>Get in Touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></button>
       <a class="btn ghost" href="#services">View Services
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
     </div>
@@ -627,6 +660,8 @@
       <span><span class="k">LINKEDIN</span><a href="https://www.linkedin.com/in/victorcitroen/" target="_blank" rel="noopener">/in/victorcitroen</a></span>
     </div>
     <div class="cta-row reveal" style="margin-top:32px">
+      <button class="btn solid" type="button" data-open-contact>Send a Message
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></button>
       <a class="btn ghost" href="https://www.linkedin.com/in/victorcitroen/" target="_blank" rel="noopener">LinkedIn
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
       <a class="btn ghost" href="cv.pdf">Download CV
@@ -641,6 +676,41 @@
     <span><a href="/privacy">PRIVACY</a> &nbsp;·&nbsp; <a href="#top">BACK TO TOP ↑</a></span>
   </div>
 </footer>
+
+<div class="cf-modal" id="cfModal" role="dialog" aria-modal="true" aria-label="Contact form">
+  <form class="cf" id="cfForm" novalidate>
+    <div class="cf-head">
+      <div><h3>Get in touch</h3><p>A consulting engagement or a role — tell me a little and I'll reply personally.</p></div>
+      <button type="button" class="cf-x" id="cfClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="cf-body">
+      <div class="cf-lbl">I'm reaching out about <span class="req">*</span></div>
+      <div class="cf-seg" id="cfSeg" role="group" aria-label="Reason for contact">
+        <button type="button" data-v="Consulting engagement" class="on">Consulting engagement</button>
+        <button type="button" data-v="Full-time / salaried role">Full-time / salaried role</button>
+        <button type="button" data-v="Contract / fractional">Contract / fractional</button>
+        <button type="button" data-v="Partnership / other">Partnership / other</button>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field"><label for="cfName">Name <span class="req">*</span></label><input id="cfName" type="text" autocomplete="name" placeholder="Your name" /><div class="cf-err" data-for="cfName">Please enter your name</div></div>
+        <div class="cf-field"><label for="cfEmail">Email <span class="req">*</span></label><input id="cfEmail" type="email" autocomplete="email" placeholder="you@company.com" /><div class="cf-err" data-for="cfEmail">Please enter a valid email</div></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field"><label for="cfCompany">Company / organisation</label><input id="cfCompany" type="text" autocomplete="organization" placeholder="Optional" /></div>
+        <div class="cf-field"><label for="cfRole">Your role</label><input id="cfRole" type="text" placeholder="Optional" /></div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field"><label for="cfTimeline">Timeline</label><select id="cfTimeline"><option>Flexible</option><option>Within 1 month</option><option>1–3 months</option><option>Just exploring</option></select></div>
+        <div class="cf-field"><label for="cfBudget">Budget / compensation</label><input id="cfBudget" type="text" placeholder="Optional" /></div>
+      </div>
+      <div class="cf-field"><label for="cfMsg">Message <span class="req">*</span></label><textarea id="cfMsg" placeholder="A few lines about the role or project…"></textarea><div class="cf-err" data-for="cfMsg">Please add a short message</div></div>
+    </div>
+    <div class="cf-foot">
+      <div class="cf-note" id="cfNote">Sends a pre-filled email to <a href="mailto:hello@victorcitroen.com">hello@victorcitroen.com</a>.<br>Prefer direct? Call +41 78 303 73 99.</div>
+      <button type="submit" class="cf-submit">Send message →</button>
+    </div>
+  </form>
+</div>
 
 <!-- ===== cookie consent ===== -->
 <div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
@@ -756,6 +826,40 @@
   hero.addEventListener('mouseleave', ()=>{ mouse.x=-999; mouse.y=-999; });
   new IntersectionObserver(es=>{ es.forEach(e=>{ if(reduce) return; if(e.isIntersecting){ cancelAnimationFrame(raf); frame(); } else cancelAnimationFrame(raf); }); }).observe(hero);
   start();
+</script>
+<script>
+(function(){
+  const modal=document.getElementById('cfModal'); if(!modal) return;
+  const form=document.getElementById('cfForm');
+  const $=id=>document.getElementById(id);
+  let reason='Consulting engagement';
+  const seg=$('cfSeg');
+  seg.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    seg.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on'); reason=b.dataset.v;
+  }));
+  function open(){ modal.classList.add('show'); document.body.style.overflow='hidden'; setTimeout(()=>$('cfName').focus(),60); }
+  function close(){ modal.classList.remove('show'); document.body.style.overflow=''; }
+  $('cfClose').addEventListener('click',close);
+  modal.addEventListener('click',e=>{ if(e.target===modal) close(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape'&&modal.classList.contains('show')) close(); });
+  document.querySelectorAll('[data-open-contact]').forEach(el=>el.addEventListener('click',e=>{ e.preventDefault(); open(); }));
+  function err(id,show){ const e=document.querySelector('.cf-err[data-for="'+id+'"]'); if(e) e.style.display=show?'block':'none'; }
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=$('cfName').value.trim(), email=$('cfEmail').value.trim(), msg=$('cfMsg').value.trim();
+    let ok=true;
+    err('cfName',!name); if(!name) ok=false;
+    const emailOk=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email); err('cfEmail',!emailOk); if(!emailOk) ok=false;
+    err('cfMsg',!msg); if(!msg) ok=false;
+    if(!ok) return;
+    const company=$('cfCompany').value.trim(), role=$('cfRole').value.trim(), timeline=$('cfTimeline').value, budget=$('cfBudget').value.trim();
+    const subject=`[${reason}] — ${name}${company?' · '+company:''}`;
+    const body=`Reason: ${reason}\nName: ${name}\nEmail: ${email}\nCompany: ${company||'—'}\nRole: ${role||'—'}\nTimeline: ${timeline}\nBudget/Comp: ${budget||'—'}\n\nMessage:\n${msg}\n\n— Sent from victorcitroen.com`;
+    window.location.href=`mailto:hello@victorcitroen.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    $('cfNote').innerHTML='Opening your email client… if nothing happens, email <a href="mailto:hello@victorcitroen.com">hello@victorcitroen.com</a> directly.';
+  });
+})();
 </script>
 </body>
 </html>
