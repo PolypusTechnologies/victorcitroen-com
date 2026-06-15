@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 /**
- * Base layer = gradient + initials, ALWAYS present.
- * The real image (if it exists in /public/assets) fades in on top once it loads.
- * If the file isn't there yet (404), onError keeps it hidden and the gradient shows.
- * Drop the file in and it upgrades automatically — no code change.
+ * Base layer = gradient + initials (always rendered).
+ * The real image sits on top and shows by default; if the file is missing (404),
+ * onError unmounts it and the gradient placeholder shows through.
+ * Drop a file into /public/assets and it appears — no code change.
  */
 export function BentoMedia({
   src,
@@ -19,7 +19,7 @@ export function BentoMedia({
   initials: string;
   className?: string;
 }) {
-  const [loaded, setLoaded] = useState(false);
+  const [broken, setBroken] = useState(false);
   return (
     <div className={`relative overflow-hidden ${className}`} style={{ background: gradient }}>
       <span
@@ -28,16 +28,16 @@ export function BentoMedia({
       >
         {initials}
       </span>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt=""
-        loading="lazy"
-        onLoad={() => setLoaded(true)}
-        onError={() => setLoaded(false)}
-        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500"
-        style={{ opacity: loaded ? 1 : 0 }}
-      />
+      {!broken && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt=""
+          loading="lazy"
+          onError={() => setBroken(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
     </div>
   );
 }
