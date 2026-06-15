@@ -171,3 +171,10 @@ html.lenis,html.lenis body{height:auto}
 @keyframes vc-pulse{0%{box-shadow:0 0 0 0 rgba(41,151,255,.55)}70%{box-shadow:0 0 0 9px rgba(41,151,255,0)}100%{box-shadow:0 0 0 0 rgba(41,151,255,0)}}
 .vc-dot{animation:vc-pulse 2.2s infinite}
 @media(prefers-reduced-motion:reduce){.vc-dot{animation:none}}
+
+/* AI-stack marquee */
+.vc-fade{-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent)}
+.vc-marquee-track{animation:vc-scroll 34s linear infinite}
+.vc-marquee:hover .vc-marquee-track{animation-play-state:paused}
+@keyframes vc-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.vc-marquee-track{animation:none;flex-wrap:wrap;justify-content:center}}

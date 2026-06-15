@@ -2,10 +2,27 @@ export type Stat = { n: string; l: string };
 export type AiBuild = {
   name: string; initials: string; cat: string; ct: string;
   img: string; gradient: string; desc: string;
+  region: string; tech: string[];
 };
 export type WorkItem = { img: string; title: string; loc: string; ct: string };
 export type Job = { role: string; org: string; meta: string };
-export type Capability = { h: string; p: string };
+export type Service = { h: string; p: string };
+
+export const services: Service[] = [
+  { h: "AI Strategy & Roadmapping",
+    p: "From a first conversation to a costed, GDPR-aware roadmap — discovery, OKRs, RFP & proposal authorship, pricing and C-suite buy-in." },
+  { h: "GDPR-Compliant Deployment",
+    p: "DPIA frameworks, Art. 30 audit logging, local PII redaction, EU data residency, SSO (Entra ID) and secrets management — shipped safely." },
+  { h: "Product & Delivery Leadership",
+    p: "Backlog and sprint ownership, gated milestone delivery and shadow-mode piloting. I own the arc from idea to live, and the commercial result." },
+  { h: "Automation & Integration",
+    p: "Hands-on n8n, Python, Docker, REST & webhooks, Microsoft Graph, Atera and WhatsApp Business APIs to prototype, automate and connect systems." },
+];
+
+export const sageTech: string[] = [
+  "n8n orchestration", "Claude API", "Atera ingestion", "Microsoft Azure",
+  "spaCy NER redaction", "Signed audit log",
+];
 
 export const stats: Stat[] = [
   { n: "8+", l: "Years" },
@@ -17,18 +34,28 @@ export const stats: Stat[] = [
 export const aiLab: AiBuild[] = [
   { name: "Atelier", initials: "At", cat: "AI commerce", ct: "Claude-built engine",
     img: "/assets/ai-atelier.jpg", gradient: "linear-gradient(135deg,#ff9f0a,#ff375f)",
+    region: "Netherlands",
+    tech: ["Claude", "Shopify", "Next.js", "Catalog automation"],
     desc: "An AI-assisted e-commerce engine — product cataloguing, listing copy and storefront flows generated and orchestrated with Claude." },
-  { name: "Pythia", initials: "Py", cat: "Personal R&D", ct: "Autonomous AI trading",
+  { name: "Pythia", initials: "Py", cat: "Autonomous trading", ct: "Agentic research system",
     img: "/assets/ai-pythia.jpg", gradient: "linear-gradient(135deg,#5e5ce6,#bf5af2)",
+    region: "Switzerland",
+    tech: ["Python", "Agentic workflows", "Market-data APIs", "Risk logic"],
     desc: "A self-driven trading-research system — agentic market-data analysis and risk logic, built as a personal learning project." },
   { name: "Ticker", initials: "Tk", cat: "Automation", ct: "Real-time signal pipeline",
     img: "/assets/ai-ticker.jpg", gradient: "linear-gradient(135deg,#34c759,#30b0c7)",
+    region: "United States",
+    tech: ["TradingView", "Webhooks", "Supabase", "Realtime log"],
     desc: "A real-time trading-signal pipeline — webhook ingestion into a live, queryable signal log." },
   { name: "Quarry", initials: "Qy", cat: "AI tooling", ct: "Multi-API data collection",
     img: "/assets/ai-quarry.jpg", gradient: "linear-gradient(135deg,#0a84ff,#0040dd)",
+    region: "Germany",
+    tech: ["Next.js", "Claude", "Google / Meta APIs", "CSV / PDF export"],
     desc: "An AI data-collection and enrichment tool — gathers and structures data across multiple APIs with clean CSV / PDF export." },
   { name: "Sentinel", initials: "Sn", cat: "Agents", ct: "Self-hosted local AI",
     img: "/assets/ai-sentinel.jpg", gradient: "linear-gradient(135deg,#64d2ff,#5e5ce6)",
+    region: "Switzerland",
+    tech: ["Docker", "Self-hosted LLM", "Linux / VPS", "Hardened gateway"],
     desc: "A self-hosted local AI agent with a hardened gateway — autonomous task execution on private infrastructure." },
 ];
 
@@ -62,13 +89,6 @@ export const experience: Job[] = [
   { role: "Chief Operating Officer (LATAM)", org: "Dekreed Interactive / Varkalai · Miami (remote)", meta: "Jan 2021 — Apr 2023" },
   { role: "Founder & Managing Director", org: "SeaiLab · Caracas", meta: "Sep 2018 — Dec 2021" },
   { role: "Fintech Business Development Executive", org: "DataSpartan Technologies · London", meta: "Aug 2017 — Jul 2018" },
-];
-
-export const capabilities: Capability[] = [
-  { h: "Product & commercial", p: "Discovery · roadmapping · OKRs · RFP & proposal authorship · pricing & monetisation · P&L ownership · C-suite engagement." },
-  { h: "AI strategy & delivery", p: "RAG pipelines · vector DBs · agentic workflows · LLM integration (Claude, GPT, Gemini). Architected & coordinated." },
-  { h: "Automation & integration — hands-on", p: "n8n · Make.com · Zapier · Python · Docker · REST & webhooks · JSON · Microsoft Graph · Atera API · WhatsApp Business API." },
-  { h: "Privacy & governance", p: "DPIA frameworks · GDPR Art. 30 audit logging · PII redaction · EU data residency · SSO (Entra ID) · secrets management. Practitioner level." },
 ];
 
 export const sageBullets: string[] = [

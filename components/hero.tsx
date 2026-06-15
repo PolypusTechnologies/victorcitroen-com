@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { stats } from "@/lib/site-data";
+import { LogoMarquee } from "@/components/logo-marquee";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -17,7 +18,7 @@ export function Hero() {
         };
 
   return (
-    <header className="relative overflow-hidden px-6 pt-36 pb-20 text-center sm:pt-44">
+    <header className="relative overflow-hidden px-6 pt-28 pb-16 text-center sm:pt-36">
       {/* soft Apple-blue glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full opacity-70"
@@ -27,9 +28,9 @@ export function Hero() {
       <div className="mx-auto max-w-[920px]">
         <motion.p
           {...rise(0)}
-          className="mb-6 text-[13px] font-semibold uppercase tracking-[0.18em] text-accent"
+          className="mb-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-accent"
         >
-          Zürich · built across three continents
+          AI Product &amp; Delivery Consultant · Zürich
         </motion.p>
         <motion.h1
           {...rise(1)}
@@ -80,6 +81,11 @@ export function Hero() {
           ))}
         </motion.div>
       </div>
+
+      <motion.div {...rise(6)} className="mx-auto mt-16 max-w-[1100px]">
+        <p className="mb-4 text-[12px] uppercase tracking-[0.16em] text-muted">The stack I build with</p>
+        <LogoMarquee />
+      </motion.div>
     </header>
   );
 }

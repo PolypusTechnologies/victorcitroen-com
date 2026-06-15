@@ -1,7 +1,7 @@
 import { Hero } from "@/components/hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { BentoMedia } from "@/components/bento-media";
-import { aiLab, work, experience, capabilities, sageBullets } from "@/lib/site-data";
+import { aiLab, work, experience, services, sageBullets, sageTech } from "@/lib/site-data";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -18,11 +18,40 @@ export default function Home() {
     <main id="top">
       <Hero />
 
-      {/* ===== Overview / The Arc ===== */}
+      {/* ===== Services / What I do ===== */}
+      <section id="services" className="border-t border-line px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-[1120px]">
+          <Reveal className="max-w-[760px]">
+            <SectionLabel>What I do</SectionLabel>
+            <h2 className="tracking-tighter2 text-[clamp(34px,5vw,56px)] font-semibold leading-[1.05]">
+              An AI delivery partner — from first conversation to live.
+            </h2>
+            <p className="mt-5 text-[17px] leading-relaxed text-muted">
+              I help teams take AI and enterprise-technology engagements from discovery to a
+              GDPR-compliant production launch — technical enough to lead the build, commercial enough
+              to win and deliver the mandate.
+            </p>
+          </Reveal>
+
+          <Stagger className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {services.map((s, i) => (
+              <StaggerItem key={s.h}>
+                <div className="flex h-full flex-col rounded-3xl border border-line bg-paper2 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.22)]">
+                  <span className="text-[14px] font-semibold text-accent">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-3 text-[22px] font-semibold tracking-tight">{s.h}</h3>
+                  <p className="mt-3 text-[15.5px] leading-relaxed text-muted">{s.p}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* ===== Approach / The Arc ===== */}
       <section id="arc" className="border-t border-line px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-[900px] text-center">
           <Reveal>
-            <SectionLabel>The Arc</SectionLabel>
+            <SectionLabel>Approach</SectionLabel>
           </Reveal>
           <Reveal delay={0.05}>
             <p className="text-[clamp(24px,3.4vw,40px)] font-semibold leading-[1.28] tracking-tight">
@@ -45,12 +74,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Flagship — SAGE Jr. (dark full-bleed) ===== */}
+      {/* ===== Flagship — SAGE Jr. (dark full-bleed case study) ===== */}
       <section id="sage" className="bg-[#1d1d1f] px-6 py-28 text-[#f5f5f7] sm:py-36">
         <div className="mx-auto max-w-[1000px] text-center">
           <Reveal>
             <span className="inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-[#2997ff]">
-              <span className="vc-dot h-2 w-2 rounded-full bg-[#2997ff]" /> Delivered · May–June 2026
+              <span className="vc-dot h-2 w-2 rounded-full bg-[#2997ff]" /> Case study · Netherlands · Delivered May–June 2026
             </span>
           </Reveal>
           <Reveal delay={0.05}>
@@ -67,7 +96,16 @@ export default function Home() {
               across an 11-phase roadmap, in a focused two-month engagement.
             </p>
           </Reveal>
-          <Stagger className="mx-auto mt-14 grid max-w-[920px] gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal delay={0.12}>
+            <div className="mx-auto mt-8 flex max-w-[820px] flex-wrap justify-center gap-2">
+              {sageTech.map((t) => (
+                <span key={t} className="rounded-full border border-[#3a3a3c] bg-[#262628] px-3.5 py-1.5 text-[12.5px] text-[#d2d2d7]">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+          <Stagger className="mx-auto mt-12 grid max-w-[920px] gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {sageBullets.map((b) => (
               <StaggerItem
                 key={b}
@@ -80,18 +118,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== AI Lab — bento ===== */}
+      {/* ===== AI Lab — bento with specs + region ===== */}
       <section id="ailab" className="border-t border-line px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-[1120px]">
-          <Reveal className="max-w-[720px]">
+          <Reveal className="max-w-[760px]">
             <SectionLabel>AI Lab</SectionLabel>
             <h2 className="tracking-tighter2 text-[clamp(34px,5vw,56px)] font-semibold leading-[1.05]">
-              Builds in progress.
+              Things I&apos;m building right now.
             </h2>
             <p className="mt-5 text-[17px] leading-relaxed text-muted">
-              A set of self-driven AI builds I&apos;m prototyping hands-on with Claude and the modern AI
-              stack — agentic systems, automation and data tooling. Internal codenames; happy to walk
-              through any of them.
+              Hands-on AI builds across agentic systems, automation and data tooling — prototyped with
+              Claude and the modern AI stack. Codenamed; happy to walk through the architecture of any
+              of them.
             </p>
           </Reveal>
 
@@ -99,13 +137,25 @@ export default function Home() {
             {aiLab.map((b, i) => (
               <StaggerItem key={b.name} className={`group ${bentoSpan[i] ?? "md:col-span-2"}`}>
                 <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-paper2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-28px_rgba(0,0,0,0.28)]">
-                  <BentoMedia src={b.img} gradient={b.gradient} initials={b.initials} className="aspect-[16/10] w-full" />
+                  <div className="relative">
+                    <BentoMedia src={b.img} gradient={b.gradient} initials={b.initials} className="aspect-[16/10] w-full" />
+                    <span className="absolute left-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
+                      {b.region}
+                    </span>
+                  </div>
                   <div className="flex flex-1 flex-col p-6">
                     <p className="text-[12.5px] font-medium text-accent">
                       {b.cat} · <span className="text-muted">{b.ct}</span>
                     </p>
                     <h3 className="mt-1.5 text-[22px] font-semibold tracking-tight">{b.name}</h3>
                     <p className="mt-2.5 text-[14.5px] leading-relaxed text-muted">{b.desc}</p>
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {b.tech.map((t) => (
+                        <span key={t} className="rounded-md border border-line bg-paper px-2 py-1 text-[11px] text-muted">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </article>
               </StaggerItem>
@@ -176,25 +226,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Capabilities ===== */}
-      <section id="capabilities" className="border-t border-line bg-paper2 px-6 py-24 sm:py-32">
-        <div className="mx-auto max-w-[1000px]">
-          <Reveal>
-            <SectionLabel>Capabilities</SectionLabel>
-          </Reveal>
-          <Stagger className="mt-10 grid grid-cols-1 gap-x-12 gap-y-9 sm:grid-cols-2">
-            {capabilities.map((c) => (
-              <StaggerItem key={c.h}>
-                <h3 className="text-[13px] font-semibold uppercase tracking-[0.08em] text-accent">{c.h}</h3>
-                <p className="mt-2.5 text-[16px] leading-relaxed text-ink/80">{c.p}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
       {/* ===== Languages ===== */}
-      <section id="languages" className="border-t border-line px-6 py-24 sm:py-32">
+      <section id="languages" className="border-t border-line bg-paper2 px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-[940px]">
           <Reveal>
             <SectionLabel>Languages</SectionLabel>
@@ -210,13 +243,14 @@ export default function Home() {
       </section>
 
       {/* ===== Contact ===== */}
-      <section id="contact" className="border-t border-line bg-paper2 px-6 py-28 text-center sm:py-36">
+      <section id="contact" className="border-t border-line px-6 py-28 text-center sm:py-36">
         <div className="mx-auto max-w-[820px]">
           <Reveal>
             <SectionLabel>Contact</SectionLabel>
             <p className="text-[clamp(28px,4.4vw,52px)] font-semibold leading-[1.1] tracking-tight">
-              Open to senior in-house roles in Zürich and across Switzerland. If the work sits where AI,
-              delivery and the commercial outcome meet — <span className="text-accent">let&apos;s talk.</span>
+              Open to senior in-house roles and consulting engagements in Zürich and across Switzerland.
+              If the work sits where AI, delivery and the commercial outcome meet —{" "}
+              <span className="text-accent">let&apos;s talk.</span>
             </p>
           </Reveal>
           <Reveal delay={0.05}>
@@ -239,7 +273,7 @@ export default function Home() {
               </a>
               <a
                 href="/cv.pdf"
-                className="rounded-full border border-line px-6 py-3 text-[15px] font-medium text-accent transition-colors hover:bg-[rgba(0,113,227,0.06)]"
+                className="rounded-full bg-accent px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
               >
                 Download CV
               </a>
