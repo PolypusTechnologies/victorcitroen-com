@@ -1,0 +1,102 @@
+// Structured data for Google + AI search engines. Phone corrected to the current number.
+const PHONE = "+41 79 831 0369";
+
+export const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://victorcitroen.com/#person",
+      name: "Victor Citroën",
+      jobTitle: [
+        "AI Deployment Manager",
+        "GenAI Delivery & Deployment Strategist",
+        "AI Product / Engagement Lead",
+        "Senior AI Product & Delivery Lead",
+      ],
+      description:
+        "AI Deployment Manager, GenAI Delivery & Deployment Strategist and AI Product / Engagement Lead based in Zürich, Switzerland. Takes enterprise AI from first conversation to live, GDPR-compliant deployment; specialising in Palantir Foundry & AIP, with 30+ products delivered across three continents, including a Volkswagen dealer-operations platform and International Trucks uptime tooling.",
+      url: "https://victorcitroen.com/",
+      email: "hello@victorcitroen.com",
+      telephone: PHONE,
+      address: { "@type": "PostalAddress", addressLocality: "Zürich", addressCountry: "CH" },
+      nationality: "Dutch",
+      knowsLanguage: ["Dutch", "Spanish", "English", "Italian", "Portuguese", "German"],
+      worksFor: { "@type": "Organization", name: "VC Technology Consultant" },
+      sameAs: ["https://www.linkedin.com/in/victorcitroen/"],
+      knowsAbout: [
+        "Artificial Intelligence consulting", "Generative AI", "Large Language Models",
+        "Palantir Foundry", "Palantir AIP", "Retrieval-Augmented Generation",
+        "AI product management", "AI delivery management", "GDPR-compliant AI deployment",
+        "Data pipelines", "Ontology modelling", "Workflow automation", "n8n", "Python", "Docker",
+        "Enterprise AI strategy", "AI for automotive", "AI in healthcare", "AI for financial services",
+        "AI for logistics", "AI for the public sector", "AI for SaaS and managed services",
+        "AI for gaming", "AI for travel and education", "AI for HR and recruitment", "AI for talent acquisition",
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://victorcitroen.com/#service",
+      name: "Victor Citroën — AI Product, Delivery & Foundry/AIP Consulting",
+      url: "https://victorcitroen.com/",
+      image: "https://victorcitroen.com/assets/og.jpg",
+      provider: { "@id": "https://victorcitroen.com/#person" },
+      email: "hello@victorcitroen.com",
+      telephone: PHONE,
+      address: { "@type": "PostalAddress", addressLocality: "Zürich", addressCountry: "CH" },
+      areaServed: ["Switzerland", "DACH", "European Union", "United States", "Latin America"],
+      serviceType: [
+        "AI strategy & roadmapping", "GenAI & LLM solution delivery",
+        "Palantir Foundry & AIP solution design", "GDPR-compliant AI deployment",
+        "Workflow automation & integration", "Fractional AI product & delivery lead",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "AI consulting services",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Strategy & Roadmap", description: "Opportunity assessment to a prioritised, deployable AI roadmap." } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "GenAI & LLM Solution Delivery", description: "RAG systems, agentic workflows and LLM integration (Claude, GPT, Gemini) from prototype to production." } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Palantir Foundry & AIP Solution Design", description: "Ontology modelling, data pipelines and operational AIP workflows." } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "GDPR-Compliant AI Deployment", description: "PII redaction, DPIA, Art. 30 audit logging, EU data residency and human-in-the-loop." } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Workflow Automation & Integration", description: "n8n, Python, Docker, REST & webhooks — automating operations end to end." } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fractional AI Product / Delivery Lead", description: "Embedded ownership taking an AI initiative from discovery to live." } },
+        ],
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://victorcitroen.com/#org",
+      name: "VC Technology Consultant",
+      alternateName: "Victor Citroën — AI Consulting",
+      url: "https://victorcitroen.com/",
+      logo: "https://victorcitroen.com/assets/og.jpg",
+      founder: { "@id": "https://victorcitroen.com/#person" },
+      employee: { "@id": "https://victorcitroen.com/#person" },
+      areaServed: ["Switzerland", "DACH", "European Union", "United States", "Latin America"],
+      sameAs: ["https://www.linkedin.com/in/victorcitroen/"],
+      knowsAbout: [
+        "Enterprise AI", "Generative AI", "Palantir Foundry", "Palantir AIP",
+        "GDPR-compliant AI deployment", "AI for automotive", "AI in healthcare",
+        "AI for financial services", "AI for logistics", "AI for the public sector", "AI for HR and recruitment",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://victorcitroen.com/#website",
+      url: "https://victorcitroen.com/",
+      name: "Victor Citroën",
+      publisher: { "@id": "https://victorcitroen.com/#person" },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://victorcitroen.com/#faq",
+      mainEntity: [
+        { "@type": "Question", name: "Who is Victor Citroën?", acceptedAnswer: { "@type": "Answer", text: "Victor Citroën is a Senior AI Product & Delivery Lead and AI consultant based in Zürich, Switzerland. He specialises in Palantir Foundry & AIP and GDPR-compliant AI deployment, with 30+ products delivered across three continents — including a Volkswagen dealer-operations platform and International Trucks uptime tooling." } },
+        { "@type": "Question", name: "What AI consulting services does Victor Citroën offer?", acceptedAnswer: { "@type": "Answer", text: "AI strategy & roadmapping, GenAI and LLM solution delivery, Palantir Foundry & AIP solution design, GDPR-compliant AI deployment, workflow automation and integration, and fractional AI product/delivery leadership." } },
+        { "@type": "Question", name: "Where is Victor Citroën based and who does he work with?", acceptedAnswer: { "@type": "Answer", text: "He is based in Zürich and available across Switzerland, the DACH region and the EU, with remote engagements in the US and Latin America. He works with enterprises, scale-ups, managed-service providers and regulated industries such as healthcare, finance and the public sector." } },
+        { "@type": "Question", name: "Does Victor Citroën work with Palantir Foundry and AIP?", acceptedAnswer: { "@type": "Answer", text: "Yes. He is currently specialising in Palantir Foundry & AIP — ontology modelling, data pipelines and operational AI workflows." } },
+        { "@type": "Question", name: "How can I contact or hire Victor Citroën?", acceptedAnswer: { "@type": "Answer", text: "Email hello@victorcitroen.com or connect on LinkedIn. He is open to senior in-house AI roles and consulting engagements across Switzerland and the EU." } },
+      ],
+    },
+  ],
+};

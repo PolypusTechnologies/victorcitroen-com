@@ -30,7 +30,7 @@ export function Hero() {
           {...rise(0)}
           className="mb-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-accent"
         >
-          AI Product &amp; Delivery Consultant · Zürich
+          AI Deployment Manager · GenAI Delivery Strategist · Zürich
         </motion.p>
         <motion.h1
           {...rise(1)}
@@ -47,9 +47,8 @@ export function Hero() {
           game studio, and most recently a GDPR-compliant AI system I delivered in the Netherlands.
         </motion.p>
         <motion.p {...rise(3)} className="mx-auto mt-5 max-w-[680px] text-[15px] leading-relaxed text-muted">
-          Senior AI Technical Product Owner &amp; CSM · GenAI Deployment Strategist · Enterprise
-          Engagement Manager. Technical enough to lead engineering teams, commercial enough to win and
-          deliver the mandate.
+          Specialising in Palantir Foundry &amp; AIP and GDPR-compliant AI deployment. Technical enough
+          to lead the build, commercial enough to win and deliver the mandate.
         </motion.p>
         <motion.div {...rise(4)} className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a

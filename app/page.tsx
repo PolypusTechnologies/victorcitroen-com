@@ -1,7 +1,8 @@
 import { Hero } from "@/components/hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
 import { BentoMedia } from "@/components/bento-media";
-import { aiLab, work, experience, services, sageBullets, sageTech } from "@/lib/site-data";
+import { ContactForm } from "@/components/contact-form";
+import { aiLab, work, experience, services, industries, faqs, sageBullets, sageTech } from "@/lib/site-data";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -204,6 +205,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== Industries ===== */}
+      <section id="industries" className="border-t border-line px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-[1120px]">
+          <Reveal className="max-w-[760px]">
+            <SectionLabel>Industries</SectionLabel>
+            <h2 className="tracking-tighter2 text-[clamp(34px,5vw,56px)] font-semibold leading-[1.05]">
+              Where AI moves the needle.
+            </h2>
+            <p className="mt-5 text-[17px] leading-relaxed text-muted">
+              By sector — each grounded in real delivery, taken from discovery to live, GDPR-compliant deployment.
+            </p>
+          </Reveal>
+          <Stagger className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((it) => (
+              <StaggerItem key={it.h}>
+                <div className="flex h-full flex-col rounded-3xl border border-line bg-paper2 p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_-28px_rgba(0,0,0,0.2)]">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-accent">{it.si}</span>
+                  <h3 className="mt-2 text-[19px] font-semibold tracking-tight">{it.h}</h3>
+                  <p className="mt-2.5 text-[14.5px] leading-relaxed text-muted">{it.p}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <Reveal delay={0.05}>
+            <p className="mt-8 text-[15px] text-muted">
+              Don&apos;t see your sector? The approach is the same everywhere — discovery to live,
+              GDPR-compliant deployment, currently specialising in{" "}
+              <span className="font-semibold text-ink">Palantir Foundry &amp; AIP</span>.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== Experience ===== */}
       <section id="experience" className="border-t border-line px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-[900px]">
@@ -242,52 +276,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Contact ===== */}
-      <section id="contact" className="border-t border-line px-6 py-28 text-center sm:py-36">
+      {/* ===== FAQ ===== */}
+      <section id="faq" className="border-t border-line px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-[820px]">
+          <Reveal>
+            <SectionLabel>FAQ</SectionLabel>
+            <h2 className="tracking-tighter2 text-[clamp(34px,5vw,56px)] font-semibold leading-[1.05]">
+              Questions, answered.
+            </h2>
+          </Reveal>
+          <Stagger className="mt-10 border-y border-line">
+            {faqs.map((f) => (
+              <StaggerItem key={f.q}>
+                <details className="group border-b border-line py-5 last:border-b-0">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[18px] font-semibold tracking-tight">
+                    {f.q}
+                    <span className="text-[22px] leading-none text-accent transition-transform duration-300 group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 text-[15.5px] leading-relaxed text-muted">{f.a}</p>
+                </details>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* ===== Contact ===== */}
+      <section id="contact" className="border-t border-line bg-paper2 px-6 py-28 sm:py-36">
+        <div className="mx-auto max-w-[820px] text-center">
           <Reveal>
             <SectionLabel>Contact</SectionLabel>
             <p className="text-[clamp(28px,4.4vw,52px)] font-semibold leading-[1.1] tracking-tight">
-              Open to senior in-house roles and consulting engagements in Zürich and across Switzerland.
-              If the work sits where AI, delivery and the commercial outcome meet —{" "}
-              <span className="text-accent">let&apos;s talk.</span>
+              Open to senior in-house AI roles and consulting engagements in Zürich and across
+              Switzerland — product, delivery, or deployment leadership where{" "}
+              <span className="text-accent">Foundry, AIP and real outcomes meet.</span>
             </p>
           </Reveal>
           <Reveal delay={0.05}>
-            <a
-              href="mailto:hello@victorcitroen.com"
-              className="mt-10 inline-block border-b-2 border-line text-[clamp(24px,4vw,44px)] font-semibold tracking-tight transition-colors hover:border-accent hover:text-accent"
-            >
-              hello@victorcitroen.com
-            </a>
+            <div className="mt-12">
+              <ContactForm />
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="https://www.linkedin.com/in/victorcitroen/"
-                target="_blank"
-                rel="noopener"
-                className="rounded-full border border-line px-6 py-3 text-[15px] font-medium text-accent transition-colors hover:bg-[rgba(0,113,227,0.06)]"
-              >
-                LinkedIn ↗
-              </a>
-              <a
-                href="/cv.pdf"
-                className="rounded-full bg-accent px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
-              >
-                Download CV
-              </a>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[14px] text-muted">
+              <a href="mailto:hello@victorcitroen.com" className="transition-colors hover:text-ink">hello@victorcitroen.com</a>
+              <a href="tel:+41798310369" className="transition-colors hover:text-ink">+41 79 831 0369</a>
+              <span>Zürich, Switzerland</span>
+              <a href="https://www.linkedin.com/in/victorcitroen/" target="_blank" rel="noopener" className="transition-colors hover:text-ink">/in/victorcitroen ↗</a>
+              <a href="/cv.pdf" className="font-medium text-accent transition-colors hover:text-[var(--accent-hover)]">Download CV</a>
             </div>
           </Reveal>
         </div>
       </section>
 
       <footer className="border-t border-line px-6 py-9">
-        <div className="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-3 text-[13px] text-muted">
+        <div className="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-x-6 gap-y-3 text-[13px] text-muted">
           <span>© 2026 Victor Citroën — Zürich, Switzerland</span>
-          <a href="#top" className="transition-colors hover:text-ink">
-            Back to top ↑
-          </a>
+          <div className="flex items-center gap-6">
+            <a href="/privacy" className="transition-colors hover:text-ink">Privacy</a>
+            <a href="#top" className="transition-colors hover:text-ink">Back to top ↑</a>
+          </div>
         </div>
       </footer>
     </main>

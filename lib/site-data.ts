@@ -7,16 +7,54 @@ export type AiBuild = {
 export type WorkItem = { img: string; title: string; loc: string; ct: string };
 export type Job = { role: string; org: string; meta: string };
 export type Service = { h: string; p: string };
+export type Industry = { si: string; h: string; p: string };
+export type Faq = { q: string; a: string };
 
 export const services: Service[] = [
-  { h: "AI Strategy & Roadmapping",
-    p: "From a first conversation to a costed, GDPR-aware roadmap — discovery, OKRs, RFP & proposal authorship, pricing and C-suite buy-in." },
+  { h: "AI Strategy & Roadmap",
+    p: "Opportunity assessment to a prioritised, deployable AI roadmap — OKRs, RFP & proposal authorship, pricing and C-suite buy-in." },
+  { h: "GenAI & LLM Solution Delivery",
+    p: "RAG systems, agentic workflows and LLM integration (Claude, GPT, Gemini) from prototype to production." },
+  { h: "Palantir Foundry & AIP",
+    p: "Ontology modelling, data pipelines and operational AIP workflows — building deep, hands-on capability." },
   { h: "GDPR-Compliant Deployment",
-    p: "DPIA frameworks, Art. 30 audit logging, local PII redaction, EU data residency, SSO (Entra ID) and secrets management — shipped safely." },
-  { h: "Product & Delivery Leadership",
-    p: "Backlog and sprint ownership, gated milestone delivery and shadow-mode piloting. I own the arc from idea to live, and the commercial result." },
-  { h: "Automation & Integration",
-    p: "Hands-on n8n, Python, Docker, REST & webhooks, Microsoft Graph, Atera and WhatsApp Business APIs to prototype, automate and connect systems." },
+    p: "Local PII redaction, DPIA, Art. 30 audit logging, EU data residency and human-in-the-loop, shipped safely." },
+  { h: "Workflow Automation & Integration",
+    p: "n8n, Python, Docker, REST & webhooks — automating operations end to end and connecting systems." },
+  { h: "Fractional AI Product / Delivery Lead",
+    p: "Embedded ownership taking an AI initiative from discovery to live — and the commercial result." },
+];
+
+export const industries: Industry[] = [
+  { si: "Automotive", h: "Automotive & Mobility",
+    p: "AI for dealer and service operations, predictive uptime and workflow automation. Delivered VW Service Xpress across 200+ dealerships and International Trucks' uptime tooling." },
+  { si: "Healthcare", h: "Healthcare & Life Sciences",
+    p: "GDPR-compliant AI for clinical and administrative workflows — document understanding, triage support and patient-data handling with PII redaction and EU residency. Built the ZanarPlus healthcare platform." },
+  { si: "Fintech", h: "Financial Services & Fintech",
+    p: "AI for document processing, risk and compliance automation, and customer operations — across banking, payments and crypto products." },
+  { si: "Logistics", h: "Logistics & Heavy Industry",
+    p: "Predictive maintenance, fleet uptime and compliance automation. Delivered International Trucks — Uptime for fleet operators." },
+  { si: "Public Sector", h: "Public Sector & Government",
+    p: "AI for citizen services, document automation and operational decision-making — with the governance and GDPR rigour the public sector requires. Delivered a municipal platform (Lechería)." },
+  { si: "SaaS / MSP", h: "Managed Services & SaaS",
+    p: "AI support systems with confidence-based routing and human-in-the-loop — like SAGE Jr., a GDPR-compliant AI support system for a Dutch managed-service provider." },
+  { si: "Gaming", h: "Gaming & Interactive",
+    p: "AI-assisted production tooling and player & operations workflows. Ran a USD 500K-funded game studio (Varkalai) as COO." },
+  { si: "HR / Talent", h: "HR & Talent Acquisition",
+    p: "AI for sourcing, candidate screening and recruitment-operations automation — built on hands-on experience as a senior technology recruiter and Head of Talent Acquisition." },
+];
+
+export const faqs: Faq[] = [
+  { q: "Who is Victor Citroën?",
+    a: "A Senior AI Product & Delivery Lead and AI consultant based in Zürich, Switzerland, specialising in Palantir Foundry & AIP and GDPR-compliant AI deployment — with 30+ products delivered across three continents, including a Volkswagen dealer-operations platform and International Trucks uptime tooling." },
+  { q: "What AI consulting services do you offer?",
+    a: "AI strategy & roadmapping, GenAI and LLM solution delivery, Palantir Foundry & AIP solution design, GDPR-compliant AI deployment, workflow automation and integration, and fractional AI product/delivery leadership." },
+  { q: "Where are you based and who do you work with?",
+    a: "Based in Zürich and available across Switzerland, the DACH region and the EU, with remote engagements in the US and Latin America. I work with enterprises, scale-ups, managed-service providers and regulated industries such as healthcare, finance and the public sector." },
+  { q: "Do you work with Palantir Foundry and AIP?",
+    a: "Yes — I'm currently specialising in Palantir Foundry & AIP: ontology modelling, data pipelines and operational AI workflows." },
+  { q: "How can I contact or hire you?",
+    a: "Email hello@victorcitroen.com or connect on LinkedIn. I'm open to senior in-house AI roles and consulting engagements across Switzerland and the EU." },
 ];
 
 export const sageTech: string[] = [
