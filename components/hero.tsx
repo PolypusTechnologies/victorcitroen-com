@@ -19,6 +19,22 @@ export function Hero() {
 
   return (
     <header className="relative overflow-hidden px-6 pt-28 pb-16 text-center sm:pt-36">
+      {/* generated hero render — subtle full-bleed backdrop */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-20 bg-cover bg-center opacity-90"
+        style={{
+          backgroundImage: "url(/assets/hero.jpg)",
+          maskImage: "radial-gradient(140% 95% at 50% 18%, #000 10%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(140% 95% at 50% 18%, #000 10%, transparent 80%)",
+        }}
+        aria-hidden
+      />
+      {/* white wash so the type stays crisp over the image */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{ background: "linear-gradient(to bottom, rgba(245,245,247,0.20) 0%, rgba(245,245,247,0.45) 50%, var(--paper) 100%)" }}
+        aria-hidden
+      />
       {/* soft Apple-blue glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[520px] w-[820px] -translate-x-1/2 rounded-full opacity-70"
