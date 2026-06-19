@@ -3,7 +3,7 @@
 // The AI / automation stack — real tools from the CV. Pure-CSS infinite marquee.
 const TOOLS = [
   "Claude", "ChatGPT", "Gemini", "n8n", "Make", "Zapier",
-  "Python", "Docker", "Supabase", "Vercel", "Microsoft Azure", "Pinecone",
+  "Python", "Docker", "Supabase", "Hugging Face", "Microsoft Azure", "Pinecone",
 ];
 
 export function LogoMarquee() {

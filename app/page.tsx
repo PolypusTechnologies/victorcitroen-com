@@ -75,6 +75,84 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== About — the person behind the arc ===== */}
+      <section id="about" className="border-t border-line px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-[760px] text-center">
+          <Reveal>
+            <SectionLabel>About</SectionLabel>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <div className="mx-auto mt-2 h-44 w-44 overflow-hidden rounded-full border border-line shadow-[0_20px_44px_-22px_rgba(0,0,0,0.4)] sm:h-52 sm:w-52">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/founder.jpg"
+                alt="Victor Citroën — Founder &amp; Principal"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <a
+              href="https://www.linkedin.com/in/victorcitroen/"
+              target="_blank"
+              rel="noopener"
+              className="mt-5 inline-flex items-center gap-2 text-[14px] text-muted transition-colors hover:text-accent"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+              </svg>
+              Connect on LinkedIn
+            </a>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <h2 className="tracking-tighter2 mt-5 text-[clamp(30px,4.2vw,46px)] font-semibold">
+              Victor Citroën
+            </h2>
+            <p className="mt-1.5 text-[15px] font-medium tracking-wide text-accent">
+              Founder &amp; Principal · Polypus Technologies
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mx-auto mt-7 max-w-[660px] space-y-4 text-[15.5px] leading-relaxed text-muted">
+              <p>
+                Senior product and delivery operator with eight years building, shipping and monetising
+                technology for enterprise and venture-backed clients across Europe, LATAM and the United
+                States.
+              </p>
+              <p>
+                I work hands-on with the AI stack — RAG architectures, LLM evaluation, agentic workflows
+                and production-grade automation — and run my consultancy from Zürich, focused on Swiss
+                institutional and enterprise clients: federal departments, cantons, municipalities,
+                universities and mid-to-large enterprise.
+              </p>
+              <p>
+                Track record includes a vehicle service-operations platform deployed across 200+
+                Volkswagen Mexico dealerships, advisory work with Credit Suisse and Morgan Stanley, and
+                recent enterprise AI proofs-of-concept pitched to Swiss real-estate and asset-management
+                firms.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="/cv.pdf"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-[15px] font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
+              >
+                Download CV
+                <span>→</span>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 text-[15px] font-medium text-accent transition-colors hover:bg-[rgba(0,113,227,0.06)]"
+              >
+                Get in touch
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ===== Flagship — SAGE Jr. (dark full-bleed case study) ===== */}
       <section id="sage" className="bg-[#1d1d1f] px-6 py-28 text-[#f5f5f7] sm:py-36">
         <div className="mx-auto max-w-[1000px] text-center">

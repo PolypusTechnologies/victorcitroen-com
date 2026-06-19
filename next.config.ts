@@ -10,6 +10,19 @@ const nextConfig: NextConfig = {
         destination: "https://victorcitroen.com/:path*",
         permanent: true,
       },
+      // polypustech.com (the old company domain) → victorcitroen.com
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "polypustech.com" }],
+        destination: "https://victorcitroen.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.polypustech.com" }],
+        destination: "https://victorcitroen.com/:path*",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

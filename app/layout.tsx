@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { SiteNav } from "@/components/site-nav";
-import { Analytics } from "@vercel/analytics/next";
 import { jsonLd } from "@/lib/jsonld";
 
 const TITLE = "Victor Citroën — AI Deployment Manager & GenAI Delivery Strategist · Zürich";
@@ -79,7 +78,6 @@ export default function RootLayout({
         <SmoothScroll />
         <SiteNav />
         {children}
-        <Analytics />
       </body>
     </html>
   );
