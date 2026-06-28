@@ -17,6 +17,25 @@ export default function Home() {
     <main id="top">
       <Hero />
 
+      {/* ===== AI Lab — things built with the stack above ===== */}
+      <section id="ailab" className="border-t border-line px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-[1120px]">
+          <Reveal className="max-w-[760px]">
+            <SectionLabel>AI Lab</SectionLabel>
+            <h2 className="tracking-tighter2 text-[clamp(34px,5vw,56px)] font-semibold leading-[1.05]">
+              Things I&apos;m building right now.
+            </h2>
+            <p className="mt-5 text-[17px] leading-relaxed text-muted">
+              Hands-on AI builds across agentic systems, automation and data tooling — prototyped with
+              Claude and the modern AI stack. Codenamed; happy to walk through the architecture of any
+              of them.
+            </p>
+          </Reveal>
+
+          <AiLabCarousel items={aiLab} />
+        </div>
+      </section>
+
       {/* ===== Services / What I do ===== */}
       <section id="services" className="border-t border-line px-6 py-24 sm:py-32">
         <div className="mx-auto max-w-[1120px]">
@@ -192,25 +211,6 @@ export default function Home() {
               </StaggerItem>
             ))}
           </Stagger>
-        </div>
-      </section>
-
-      {/* ===== AI Lab — bento with specs + region ===== */}
-      <section id="ailab" className="border-t border-line px-6 py-24 sm:py-32">
-        <div className="mx-auto max-w-[1120px]">
-          <Reveal className="max-w-[760px]">
-            <SectionLabel>AI Lab</SectionLabel>
-            <h2 className="tracking-tighter2 text-[clamp(34px,5vw,56px)] font-semibold leading-[1.05]">
-              Things I&apos;m building right now.
-            </h2>
-            <p className="mt-5 text-[17px] leading-relaxed text-muted">
-              Hands-on AI builds across agentic systems, automation and data tooling — prototyped with
-              Claude and the modern AI stack. Codenamed; happy to walk through the architecture of any
-              of them.
-            </p>
-          </Reveal>
-
-          <AiLabCarousel items={aiLab} />
         </div>
       </section>
 
