@@ -1,6 +1,6 @@
 import { Hero } from "@/components/hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal";
-import { BentoMedia } from "@/components/bento-media";
+import { AiLabCarousel } from "@/components/ai-lab-carousel";
 import { ContactForm } from "@/components/contact-form";
 import { aiLab, work, experience, services, industries, faqs, sageBullets, sageTech } from "@/lib/site-data";
 
@@ -11,8 +11,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
     </p>
   );
 }
-
-const bentoSpan = ["md:col-span-3", "md:col-span-3", "md:col-span-2", "md:col-span-2", "md:col-span-2"];
 
 export default function Home() {
   return (
@@ -212,34 +210,7 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <Stagger className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-6">
-            {aiLab.map((b, i) => (
-              <StaggerItem key={b.name} className={`group ${bentoSpan[i] ?? "md:col-span-2"}`}>
-                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-paper2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-28px_rgba(0,0,0,0.28)]">
-                  <div className="relative">
-                    <BentoMedia src={b.img} gradient={b.gradient} initials={b.initials} className="aspect-[16/10] w-full" />
-                    <span className="absolute left-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
-                      {b.region}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <p className="text-[12.5px] font-medium text-accent">
-                      {b.cat} · <span className="text-muted">{b.ct}</span>
-                    </p>
-                    <h3 className="mt-1.5 text-[22px] font-semibold tracking-tight">{b.name}</h3>
-                    <p className="mt-2.5 text-[14.5px] leading-relaxed text-muted">{b.desc}</p>
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                      {b.tech.map((t) => (
-                        <span key={t} className="rounded-md border border-line bg-paper px-2 py-1 text-[11px] text-muted">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
-          </Stagger>
+          <AiLabCarousel items={aiLab} />
         </div>
       </section>
 
