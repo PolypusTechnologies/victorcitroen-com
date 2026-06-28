@@ -260,8 +260,8 @@ export default function Home() {
           </Reveal>
 
           <Stagger className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {work.map((w) => (
-              <StaggerItem key={w.title} className="group">
+            {work.map((w) => {
+              const inner = (
                 <figure className="h-full overflow-hidden rounded-2xl border border-line bg-paper2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_50px_-26px_rgba(0,0,0,0.3)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -271,14 +271,28 @@ export default function Home() {
                     className="aspect-[100/72] w-full bg-white object-cover"
                   />
                   <figcaption className="p-4">
-                    <div className="text-[18px] font-semibold tracking-tight">{w.title}</div>
+                    <div className="text-[18px] font-semibold tracking-tight">
+                      {w.title}
+                      {w.href && <span className="ml-1.5 text-[13px] text-accent">↗</span>}
+                    </div>
                     <div className="mt-1 text-[12.5px] text-muted">
                       {w.loc} · <span className="text-accent">{w.ct}</span>
                     </div>
                   </figcaption>
                 </figure>
-              </StaggerItem>
-            ))}
+              );
+              return (
+                <StaggerItem key={w.title} className="group">
+                  {w.href ? (
+                    <a href={w.href} target="_blank" rel="noopener noreferrer" className="block h-full">
+                      {inner}
+                    </a>
+                  ) : (
+                    inner
+                  )}
+                </StaggerItem>
+              );
+            })}
           </Stagger>
         </div>
       </section>

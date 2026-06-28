@@ -4,7 +4,7 @@ export type AiBuild = {
   img: string; gradient: string; desc: string;
   region: string; tech: string[];
 };
-export type WorkItem = { img: string; title: string; loc: string; ct: string };
+export type WorkItem = { img: string; title: string; loc: string; ct: string; href?: string };
 export type Job = { role: string; org: string; meta: string };
 export type Service = { h: string; p: string };
 export type Industry = { si: string; h: string; p: string };
@@ -98,6 +98,7 @@ export const aiLab: AiBuild[] = [
 ];
 
 export const work: WorkItem[] = [
+  { img: "/assets/thecircle.jpg", title: "The Circle Zürich", loc: "Switzerland", ct: "Luxury event · RSVP & guest CRM", href: "https://thecirclezurich.ch" },
   { img: "/assets/servicexpress.jpg", title: "VW Service Xpress", loc: "Mexico", ct: "Service-ops · 200+ dealerships" },
   { img: "/assets/uptime.jpg", title: "International Trucks — Uptime", loc: "Mexico", ct: "Workforce compliance" },
   { img: "/assets/varkalai.jpg", title: "Varkalai — Cradle of Fate", loc: "USD 500K-funded", ct: "PC game · COO / Product Owner" },
